@@ -4,7 +4,7 @@ from pymol import stored
 
 def construct_bioassembly(pdb_list, bio_assembly):
     for pdb in pdb_list:
-        cmd.set('assembly', f'value={str(bio_assembly)}')
+        cmd.set('assembly', f'{str(bio_assembly)}')
         cmd.fetch(pdb, type='cif', path='./1_input_pdb')
         cmd.split_states(pdb)
         cmd.delete(pdb)
