@@ -5,16 +5,13 @@ from pymol import stored
 def construct_bioassembly(pdb_list, bio_assembly):
     for pdb in pdb_list:
         cmd.set('assembly', f'{str(bio_assembly)}')
-        cmd.fetch(pdb, type='cif', path='./1_input_pdb')
+        cmd.fetch(pdb, type='cif')
         cmd.split_states(pdb)
         cmd.delete(pdb)
         assembly_parts = cmd.get_names('all')
-        print(assembly_parts)
         for i in range(1, len(assembly_parts)+1):
             cmd.alter(assembly_parts[i-1], f'chain=chain+str({i})')
-        print('loop finished with success...')
         cmd.create(pdb, 'all')
-        print('merging done...')
         cmd.delete(f'not {pdb}')
         cmd.save(f'{pdb}.cif', format='cif')
 
