@@ -12,7 +12,7 @@ def construct_bioassembly(pdb_list):
         for i in range(1, len(assembly_parts)+1):
             cmd.alter(assembly_parts[i-1], f'chain=chain+str({i})')
         print('loop finished with success...')
-        cmd.create(pdb, assembly_parts)
+        cmd.create(pdb, 'all')
         print('merging done...')
         cmd.delete(f'not {pdb}')
         cmd.save(f'{pdb}.cif', format='cif')
