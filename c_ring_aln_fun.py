@@ -2,7 +2,7 @@ import csv
 from pymol import cmd
 from pymol import stored
 
-def construct_bioassembly(pdb_list=pdb_list):
+def construct_bioassembly(pdb_list):
     for pdb in pdb_list:
         cmd.fetch(pdb, type='cif', path='./1_input_pdb')
         cmd.split_states(pdb)
