@@ -7,7 +7,7 @@ def construct_bioassembly(pdb_list):
         cmd.fetch(pdb, type='cif', path='./1_input_pdb')
         cmd.split_states(pdb)
         cmd.delete(pdb)
-        assembly_parts = cmd.get_names(pdb+'*')
+        assembly_parts = cmd.get_names('all')
         for i in range(1, len(assembly_parts)+1):
             cmd.alter(assembly_parts[i-1], f'chain=chain+str({i})')
         cmd.create(pdb, assembly_parts)
