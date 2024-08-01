@@ -11,7 +11,9 @@ pdb_data = sorted(pdb_data, key=lambda pdb: pdb[0])
 # Align ATPases using extra_fit super to human ATPase
 
 cmd.loadall('./1_input_pdb/*')
-remove organic or solvent
+remove organic
+remove solvent
+remove resn UNK
 extra_fit name CA, 8H9S, cealign
 
 # Construct a pseudoatom line along the z-axis
