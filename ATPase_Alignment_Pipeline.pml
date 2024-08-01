@@ -42,3 +42,4 @@ for pdb in pdb_data: cmd.save('./2_output_pdb/'+pdb[0]+'_aligned.pdb', pdb[0].lo
 
 reset
 turn x, 90
+save atpase_alignment.pse
